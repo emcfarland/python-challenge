@@ -3,7 +3,6 @@ import csv
 
 csvpath = os.path.join('..','PyBank','Resources','budget_data.csv')
 
-
 with open(csvpath) as csvFileStream:
     csvreader = csv.reader(csvFileStream,delimiter=',')
 
