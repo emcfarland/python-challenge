@@ -11,10 +11,8 @@ with open(csvpath) as csvFileStream:
 
     num_months = 0
     total = 0
-    prev_profit = 0
-    change = 0
-    tot = 0
-    gains = 0
+    prev_profit = change = 0
+    gains = losses = 0
     losses = 0
 
     for row in csvreader:
