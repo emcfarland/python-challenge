@@ -11,14 +11,24 @@ with open(csvpath) as csvFileStream:
 
     num_months = 0
     total = 0
-    curr_profit = 0
+    prev_profit = 0
+    change = []
+    tot = 0
 
     for row in csvreader:
         num_months += 1
-        total += int(row[1])
         curr_profit = int(row[1])
-        if curr_profit > 0:
+        total += curr_profit
+        if prev_profit != 0:
+            change.append(curr_profit - prev_profit)
+        prev_profit = curr_profit
+    for val in change:
+        tot += val
 
-    print(num_months)
-    print(total)
-    print(total/num_months)
+    print(f'Financial Analysis')
+    print(f'--------------------------------')
+    print(f'Total Months: {num_months}')
+    print('Total: '+'${:,}'.format(total))
+    print('${:,.2f}'.format(tot/(num_months-1)))
+    print('${:,}'.format(max(change)))
+    print('${:,}'.format(min(change)))
