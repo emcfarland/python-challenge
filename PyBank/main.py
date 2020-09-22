@@ -39,10 +39,10 @@ with open(csvpath) as csvFileStream:
     print(f'Financial Analysis')
     print(f'--------------------------------')
     print(f'Total Months: {num_months}')
-    print('Total: ${:,}'.format(total))
-    print('Average Change: ${:,.2f}'.format(avg))
-    print('Greatest Increase in Profits: ' + best_month + ' (${:,}'.format(gains) + ')')
-    print('Greatest Decrease in Profits: ' + worst_month + ' (${:,}'.format(losses) + ')')
+    print(f'Total: ${total:,}')
+    print(f'Average Change: ${avg:,.2f}')
+    print(f'Greatest Increase in Profits: {best_month} (${gains:,})')
+    print(f'Greatest Decrease in Profits: {worst_month} (${losses:,})')
 
 
     # with open("Output.txt", "w") as text_file:
