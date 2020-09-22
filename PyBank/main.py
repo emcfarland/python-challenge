@@ -1,18 +1,24 @@
 import os
 import csv
 
+# Get File Path of budget_data.csv dataset
 csvpath = os.path.join('..','PyBank','Resources','budget_data.csv')
 
+# Open CSV
 with open(csvpath) as csvFileStream:
     csvreader = csv.reader(csvFileStream,delimiter=',')
 
     csv_header = next(csvreader)
 
+    # Set variables for number of months and total of profit/loss
     num_months = 0
     total = 0
+
+    # Set variables for profit/loss of previous row,
+    # change in profit from previous row to current row,
+    # and gains and losses, which hold max and min change values
     prev_profit = change = 0
     gains = losses = 0
-    losses = 0
 
     for row in csvreader:
         
