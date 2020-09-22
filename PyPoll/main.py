@@ -3,7 +3,7 @@ import csv
 
 # Get File Path of election_data.csv dataset
 csvpath = os.path.join('..','PyPoll','Resources','election_data.csv')
-# txtpath = os.path.join('..','PyPoll','Analysis','election_results.txt')
+txtpath = os.path.join('..','PyPoll','Analysis','elec_analysis.txt')
 
 # Open CSV
 with open(csvpath) as csvFileStream:
@@ -42,3 +42,22 @@ with open(csvpath) as csvFileStream:
     # Print line break, and winner by position in sorted list
     print('--------------------------------')
     print(f'Winner: {sorted_cand[0][0]}')
+
+# Open TXT and write results
+with open(txtpath, "w") as text_file:
+
+    # Write results to text file
+    text_file.writelines([
+        f'Election Results'+'\n',
+        '--------------------------------'+'\n',
+        f'Total Votes: {num_votes:,}'+'\n',
+        '--------------------------------'+'\n',
+    ])
+
+    for x in sorted_cand:
+        text_file.write(f'{x[0]}: {x[1]/num_votes:.3%} ({x[1]:,} votes)'+'\n')
+
+    text_file.writelines([
+        '--------------------------------'+'\n',
+        f'Winner: {sorted_cand[0][0]}'
+    ])
