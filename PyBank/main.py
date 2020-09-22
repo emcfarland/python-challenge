@@ -28,22 +28,24 @@ with open(csvpath) as csvFileStream:
         
         if (prev_profit < curr_profit) and ((curr_profit - prev_profit) > gains):
             gains = curr_profit - prev_profit
+            best_month = row[0]
 
         elif (prev_profit > curr_profit) and ((curr_profit - prev_profit) < losses):
             losses = curr_profit - prev_profit
+            worst_month = row[0]
         
         prev_profit = curr_profit
     
-    # for val in change:
-    #     tot += val
-
-
+    avg = change/(num_months-1)
+    
     print(f'Financial Analysis')
     print(f'--------------------------------')
     print(f'Total Months: {num_months}')
-    print('Total: '+'${:,}'.format(total))
-    print('${:,.2f}'.format(change/(num_months-1)))
-    print('${:,}'.format(gains))
-    print('${:,}'.format(losses))
-    # print('${:,}'.format(max(change)))
-    # print('${:,}'.format(min(change)))
+    print('Total: ${:,}'.format(total))
+    print('Average Change: ${:,.2f}'.format(avg))
+    print('Greatest Increase in Profits: ' + best_month + ' (${:,}'.format(gains) + ')')
+    print('Greatest Decrease in Profits: ' + worst_month + ' (${:,}'.format(losses) + ')')
+
+
+    # with open("Output.txt", "w") as text_file:
+    #     text_file.write()
