@@ -2,8 +2,8 @@ import os
 import csv
 
 # Get File Path of election_data.csv dataset
-csvpath = os.path.join('..','PyPoll','Resources','election_data.csv')
-txtpath = os.path.join('..','PyPoll','Analysis','elec_analysis.txt')
+csvpath = os.path.join('Resources','election_data.csv')
+txtpath = os.path.join('Analysis','elec_analysis.txt')
 
 # Open CSV
 with open(csvpath) as csvFileStream:
@@ -32,6 +32,8 @@ with open(csvpath) as csvFileStream:
     sorted_cand = sorted(candidates.items(), key=lambda x:x[1], reverse=True)        
     
     # Print total votes and line break
+    print('Election Results')
+    print('--------------------------------')    
     print(f'Total Votes: {num_votes:,}')
     print('--------------------------------')
     
@@ -48,7 +50,7 @@ with open(txtpath, "w") as text_file:
 
     # Write results to text file
     text_file.writelines([
-        f'Election Results'+'\n',
+        'Election Results\n',
         '--------------------------------'+'\n',
         f'Total Votes: {num_votes:,}'+'\n',
         '--------------------------------'+'\n',

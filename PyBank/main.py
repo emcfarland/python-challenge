@@ -2,8 +2,8 @@ import os
 import csv
 
 # Get File Path of budget_data.csv dataset
-csvpath = os.path.join('..','PyBank','Resources','budget_data.csv')
-txtpath = os.path.join('..','PyBank','Analysis','fin_analysis.txt')
+csvpath = os.path.join('Resources','budget_data.csv')
+txtpath = os.path.join('Analysis','fin_analysis.txt')
 
 # Open CSV
 with open(csvpath) as csvFileStream:
@@ -33,12 +33,12 @@ with open(csvpath) as csvFileStream:
         if prev_profit != 0:
             change += (curr_profit - prev_profit)
         
-        # Store current increase and month if value is higher than previous
+        # Store current increase and month if value is higher than previous best
         if (curr_profit - prev_profit) > gains:
             gains = curr_profit - prev_profit
             best_month = row[0]
 
-        # Store current decrease and month if value is lower than previous
+        # Store current decrease and month if value is lower than previous worst
         elif (curr_profit - prev_profit) < losses:
             losses = curr_profit - prev_profit
             worst_month = row[0]
