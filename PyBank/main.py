@@ -62,11 +62,11 @@ with open(csvpath) as csvFileStream:
 with open(txtpath, "w") as text_file:
 
     text_file.writelines([
-        f'Financial Analysis'+'\n',
-        f'--------------------------------'+'\n',
-        f'Total Months: {num_months}'+'\n',
-        f'Total: ${total:,}'+'\n',
-        f'Average Change: ${avg:,.2f}'+'\n',
-        f'Greatest Increase in Profits: {best_month} (${gains:,})'+'\n',
+        f'Financial Analysis \n',
+        f'--------------------------------\n',
+        f'Total Months: {num_months}\n',
+        f'Total: ${total:,}\n',
+        f'Average Change: ${avg:,.2f}\n',
+        f'Greatest Increase in Profits: {best_month} (${gains:,})\n',
         f'Greatest Decrease in Profits: {worst_month} (${losses:,})'
     ])

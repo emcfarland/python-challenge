@@ -51,15 +51,15 @@ with open(txtpath, "w") as text_file:
     # Write results to text file
     text_file.writelines([
         'Election Results\n',
-        '--------------------------------'+'\n',
-        f'Total Votes: {num_votes:,}'+'\n',
-        '--------------------------------'+'\n',
+        '--------------------------------\n',
+        f'Total Votes: {num_votes:,}\n',
+        '--------------------------------\n',
     ])
 
     for x in sorted_cand:
-        text_file.write(f'{x[0]}: {x[1]/num_votes:.3%} ({x[1]:,} votes)'+'\n')
+        text_file.write(f'{x[0]}: {x[1]/num_votes:.3%} ({x[1]:,} votes)\n')
 
     text_file.writelines([
-        '--------------------------------'+'\n',
+        '--------------------------------\n',
         f'Winner: {sorted_cand[0][0]}'
     ])
